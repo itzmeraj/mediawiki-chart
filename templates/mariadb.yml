@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-db
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-db
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-db
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-container
+          image: {{ .Values.image.dbimage }}
+          env:
+            - name: MYSQL_DATABASE
+              value: {{ .Values.mysql.dbname }}
+            - name: MYSQL_USER
+              value: {{ .Values.mysql.dbuser }}
+            - name: MYSQL_PASSWORD
+              value: {{ .Values.mysql.dbpass }}
+            - name: MYSQL_RANDOM_ROOT_PASSWORD
+              value: 'yes'
