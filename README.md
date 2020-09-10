@@ -47,8 +47,8 @@ The following table lists the configurable parameters of the MediaWiki chart and
 | `image.svcimage`	               | Docker image registry for mediawiki servide                                                            | `mediawiki`                                                  |
 | `image.dbimage`       	       | Docker image registry for mariadb servide                                                              | `mariadb`      					       |
 | `mysql.dbname`              	       | Mariadb database name                                                                                  | `my_wiki`                                                    |
-| `mysql.dbuser`                       | Mariadb user name                                                                                      | `docker.io`                                                  |
-| `mysql.dbpass`                       | Mariadb password                                                                                       | `bitnami/mediawiki`                                          |
+| `mysql.dbuser`                       | Mariadb user name                                                                                      | `test`                                                  |
+| `mysql.dbpass`                       | Mariadb password                                                                                       | `Hello123`                                          |
 | `service.apptype`                    | Service type for kubernetes mediawiki service                                                          | `NodePort`                                                   |
 | `service.appPort`                    | Service Port for kubernetes mediawiki service                                                          | `80`                                                         |
 | `service.dbtype`                     | Service type for kubernetes db service                                                                 | `NodePort`                                                   |
