@@ -1,0 +1,27 @@
+# Default values for mediawiki-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# ReplicaSet required for the deployment 
+replicaCount: 1
+
+#Docker Image to be used for MediaWiki Deployment 
+image:
+  svcimage: mediawiki  #Using Official docker image of MediaWiki
+  dbimage: mariadb     #Using Official docker image of MariaDB
+
+#MySQL details to help in bootstraping mariadb
+mysql:
+  dbname: my_wiki  #db name to be created in MariaDB
+  dbuser: test     #db user to be created in MariaDB
+  dbpass: Hello123 #db password to be created for the above user in MariaDB
+
+#kubernetes service details 
+service:
+  apptype: NodePort #App Service binds using NodePort
+  appPort: 80 #App Container exposes port 80
+  appNodePort: 32625 #App binds to this node port on the cluster
+  dbtype: NodePort #DB Service binds using NodePort
+  dbPort: 3306  #DB Container exposes port 3306
+  dbNodePort: 32626  #DB binds to this node port on the cluster
+
